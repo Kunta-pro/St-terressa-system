@@ -1,4 +1,4 @@
 <?php
-    include("../assets/config.php");
-    
+    include("../../assets/config.php");
+
 ?>

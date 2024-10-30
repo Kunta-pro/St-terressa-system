@@ -1,12 +1,9 @@
+
 <?php
 include("../assets/noSessionRedirect.php"); 
 include('./fetch-data/verfyRoleRedirect.php');
 
 error_reporting(0);
-?>
-<?php
-   session_start();
-   $uid=$_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,8 +14,9 @@ error_reporting(0);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <title>ERP - owner</title>
+    <title>ERP</title>
 </head>
 <body>
     <div class="header">
@@ -55,64 +53,58 @@ error_reporting(0);
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search" id="search-teacher" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
     </div>
-    <?php
-     $sql = "SELECT COUNT(*) as total_rows FROM users WHERE role='teacher'";
-     $result = mysqli_query($conn, $sql);
-     if(mysqli_num_rows($result) > 0) {
-         $row = mysqli_fetch_assoc($result);
-    ?>
-    <div class="main">
-        <div class="card1">
-            <div class="card" style="width: 18rem;">
-             <img class="card-img-top" src="img/teacher.png" alt="Card image cap">
-             <div class="card-body">
-                <?php
-                echo "<h5 class='card-title'>Total Teachers: ".$row['total_rows']."</h5>
-               <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <a href='teacher-list.php' class='btn btn-primary'>See Teachers List</a>";
-               }
-               ?>
-             </div>
-           </div>
-        </div>
-        <?php
-     $sql_1 = "SELECT COUNT(*) as total_row FROM users WHERE role='student'";
-     $result1 = mysqli_query($conn, $sql_1);
-     if(mysqli_num_rows($result1) > 0) {
-         $rows = mysqli_fetch_assoc($result1);
-    ?>
-        <div class="card2">
-            <div class="card" style="width: 18rem;">
-             <img class="card-img-top" src="img/student.png" alt="Card image cap">
-             <div class="card-body">
-               <h5 class="card-title">Total Students: <?php echo $rows['total_row'];} ?></h5>
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <a href="student-list.php" class="btn btn-primary">See Students List</a>
-             </div>
-           </div>
-        </div>
+    <div class="teacher-list">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Sr_NO</th>
+      <th scope="col">NAME</th>
+      <th scope="col">Gender</th>
+      <th scope="col">MORE DETAILS</th>
+    </tr>
+  </thead>
+  <tbody id="tb">
+    
+  </tbody>
+</table>
     </div>
-   <footer class="text-center bg-body-tertiary">
-  <!-- Grid container -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        function load_table(){$.ajax({
+          url: "fetch-data/fetch-teachers.php",
+          method: "POST",
+          success: function(data){
+             $("#tb").html(data);
+          }
+        });
+      }
+      load_table();
 
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © <?php echo date('Y'); ?> Copyright:
-    <a class="text-body" target="_blank" href="https://www.github.com/ProjectsAndPrograms">ProjectsAndPrograms</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<script type="text/javascript">
-        import { Ripple, initMDB } from "mdb-ui-kit";
+        $("#search-teacher").on("keyup",function(){
+          var search=$(this).val();
+          $.ajax({
+              url: "fetch-data/search-teacher.php",
+              type: "POST",
+              data: {search: search},
+              success: function(data){
+                  $("#tb").html(data);
+              }
+        });
+        });
+        
+      
+      });
 
-        initMDB({ Ripple });
+     
+
+
     </script>
-</body>
-</html>
+  </body>
+  </html>

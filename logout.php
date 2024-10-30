@@ -1,11 +1,6 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
-    unset($_SESSION);
-    session_destroy();
-
-    $response = array('status' => 'success',
-                     'message' => 'Logout successful');
-    echo json_encode($response);
-
+session_unset();
+header('Location: ../login.php');
 ?>

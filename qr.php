@@ -1,3 +1,4 @@
+
 <?php
 include("../assets/noSessionRedirect.php"); 
 include('./fetch-data/verfyRoleRedirect.php');
@@ -5,20 +6,29 @@ include('./fetch-data/verfyRoleRedirect.php');
 error_reporting(0);
 ?>
 <?php
-   session_start();
-   $uid=$_SESSION['id'];
+   include("../assets/config.php");
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="../images/1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <title>ERP - owner</title>
+    <title>ERP</title>
+    <style type="text/css">
+      .payment{
+        margin-bottom: 10%;
+      }
+      @media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+    </style>
 </head>
 <body>
     <div class="header">
@@ -41,7 +51,7 @@ error_reporting(0);
             Fee Pay
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="make-payment.php">PAYROLL</a></li>
+            <li><a class="dropdown-item" href="make-payment.php">Make Payment</a></li>
             <li><a class="dropdown-item" href="see-payment.php">See Payment</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -62,57 +72,38 @@ error_reporting(0);
   </div>
 </nav>
     </div>
-    <?php
-     $sql = "SELECT COUNT(*) as total_rows FROM users WHERE role='teacher'";
-     $result = mysqli_query($conn, $sql);
-     if(mysqli_num_rows($result) > 0) {
-         $row = mysqli_fetch_assoc($result);
-    ?>
-    <div class="main">
-        <div class="card1">
-            <div class="card" style="width: 18rem;">
-             <img class="card-img-top" src="img/teacher.png" alt="Card image cap">
-             <div class="card-body">
+
+    <div class="payment">
+      <section class="h-100 h-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Payment Info</h3>
+
+            <form class="px-md-2">
                 <?php
-                echo "<h5 class='card-title'>Total Teachers: ".$row['total_rows']."</h5>
-               <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <a href='teacher-list.php' class='btn btn-primary'>See Teachers List</a>";
-               }
-               ?>
-             </div>
-           </div>
+                   if($_POST['teacher_id']=='T1703597586'){
+                    echo "<img src='img/arzoo.jpg' style='width: 80%; margin-left: 10%;'>";
+                   }
+                   else if($_POST['teacher_id']=='T1703574415'){
+                       echo "<img src='img/qr2.jpg' style='width: 80%; margin-left: 10%;'>";
+                   }
+                   else{
+                    echo " No Qr Found ";
+                   }
+                ?>
+
+            </form>
+
+          </div>
         </div>
-        <?php
-     $sql_1 = "SELECT COUNT(*) as total_row FROM users WHERE role='student'";
-     $result1 = mysqli_query($conn, $sql_1);
-     if(mysqli_num_rows($result1) > 0) {
-         $rows = mysqli_fetch_assoc($result1);
-    ?>
-        <div class="card2">
-            <div class="card" style="width: 18rem;">
-             <img class="card-img-top" src="img/student.png" alt="Card image cap">
-             <div class="card-body">
-               <h5 class="card-title">Total Students: <?php echo $rows['total_row'];} ?></h5>
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <a href="student-list.php" class="btn btn-primary">See Students List</a>
-             </div>
-           </div>
-        </div>
+      </div>
     </div>
-   <footer class="text-center bg-body-tertiary">
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © <?php echo date('Y'); ?> Copyright:
-    <a class="text-body" target="_blank" href="https://www.github.com/ProjectsAndPrograms">ProjectsAndPrograms</a>
   </div>
-  <!-- Copyright -->
-</footer>
-<script type="text/javascript">
-        import { Ripple, initMDB } from "mdb-ui-kit";
+</section>
+    </div>
 
-        initMDB({ Ripple });
-    </script>
-</body>
-</html>
+  </body>
+  </html>

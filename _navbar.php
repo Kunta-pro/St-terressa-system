@@ -1,61 +1,38 @@
-<nav>
-        <i class='bx bx-menu SidebarOpener'></i>
-            <form id="unknowingForm">
-                <div class="form-input">
-                    <input type="search" placeholder="Search..." id="topMostSearchBar">
-                    <button class="search-btn" type="button" id="topMostSearchBarBtn"><i class='bx bx-search-alt'></i></button>
-                </div>
-            </form>
-         
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="./index.php">
+        <img src="./images/company-logo.jpg" alt="Logo" />
+      </a>
+      <a href="./index.php">
+        <h3>SCHOOL MANAGEMENT</h3>
+      </a>
+    </div>
 
-            
-           
+    <div class="nav-container">
 
-            <input type="checkbox" id="theme-toggle" hidden>
-            <label for="theme-toggle" class="theme-toggle" onload="checkAndChangeTheme()"></label>
+      <div class="links">
+        <ul>
+          <li><a href="./index.php">Home</a></li>
+          <li><a href="./about-us.php">About-us</a></li>
+          <li><a href="./login.php" class="btn">Login</a></li>
+        </ul>
 
-            <!-- <div class="dropdown dropdown-center">
-                <a href="#" class="notif"  href="#"  data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class='bx bx-bell'></i>
-                    <span class="count">12</span>
-                </a>
-              
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item">Example message</a></li>
-                  <li><a class="dropdown-item">Example message</a></li>
-                  <li><a class="dropdown-item">Example message</a></li>
-                </ul>
-              </div> -->
 
-            <a href="settings.php" class="profile" id="navbar_profile_pic">
-                
-                <img src="../images/user.png" >
-               
-            </a>
+      </div>
+      <div class="bottom-area">
+        <div class="container">
+          <button class="toggle-btn">
+            <i class="far fa-moon"></i>
+            <i class="far fa-sun"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
 
-           
-            <div class="dropdown dropdown-center">
-                <a class=" menu" href="#"  data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class='bx bx-dots-vertical-rounded icon-hover-circle'></i>
-                </a>
-              
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="settings.php">Settings</a></li>
-                  <!-- <li><a class="dropdown-item" href="#"></a></li> -->
-                  <li><a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#logout-modal">Logout</a></li>
-                </ul>
-              </div>
-</nav>
-
-<?php 
-  // session_start();
-  $theme = "";
-
-  if(isset($_SESSION['theme'])){
-    $theme = $_SESSION['theme'];
-  }else{
-    $theme = 'light';
-  }
-
-?>
-
+    <div class="hamburger-menu">
+      <div class="bar"></div>
+    </div>
+  </div>
+</header>

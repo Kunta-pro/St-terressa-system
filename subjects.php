@@ -8,7 +8,7 @@
             <div class="modal-header">
             </div>
             <div class="modal-body">
-                <strong>Do you really want to Edit this Subject?</strong>
+                <strong>Do you really want to Edit this subject?</strong>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -70,9 +70,9 @@
                                 <option>1</option>
                                 <option>pg</option>
                                 <option>lkg</option>
-                                <option>ukg</option> -->
-                                <?php include('partials/select_classes.php') ?>
-                            </select>
+                                <option>ukg</option>
+                            </select> -->
+                            <?php include('partials/select_classes.php') ?>
                             <div class="invalid-feedback">
                                 Please select class.
                             </div>
@@ -190,21 +190,21 @@
                                     <div class="col-auto">
                                         <select class="form-select" aria-label="Default select example" name="class"
                                             id="search-class">
-                                            <!--<option selected>12</option>-->
-                                            <!--<option>11</option>-->
-                                            <!--<option>10</option>-->
-                                            <!--<option>9</option>-->
-                                            <!--<option>8</option>-->
-                                            <!--<option>7</option>-->
-                                            <!--<option>6</option>-->
-                                            <!--<option>5</option>-->
-                                            <!--<option>4</option>-->
-                                            <!--<option>3</option>-->
-                                            <!--<option>2</option>-->
-                                            <!--<option>1</option>-->
-                                            <!--<option>pg</option>-->
-                                            <!--<option>lkg</option>-->
-                                            <!--<option>ukg</option>-->
+                                            <!-- <option selected>12</option>
+                                            <option>11</option>
+                                            <option>10</option>
+                                            <option>9</option>
+                                            <option>8</option>
+                                            <option>7</option>
+                                            <option>6</option>
+                                            <option>5</option>
+                                            <option>4</option>
+                                            <option>3</option>
+                                            <option>2</option>
+                                            <option>1</option>
+                                            <option>pg</option>
+                                            <option>lkg</option>
+                                            <option>ukg</option> -->
                                             <?php include('partials/select_classes.php') ?>
                                         </select>
                                     </div>

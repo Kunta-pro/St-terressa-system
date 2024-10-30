@@ -115,8 +115,8 @@
                                     <label for="class" class="form-label">Class</label>
                                     <select class="form-select" id="class" name="class" style="width:100%;" required>
 
-                                        <option selected disabled value="">---select--</option>
-                                        <!-- <option value="12">12</option>
+                                        <!-- <option selected disabled value="">---select--</option>
+                                        <option value="12">12</option>
                                         <option value="11">11</option>
                                         <option value="10">10</option>
                                         <option value="9">9</option>
@@ -131,7 +131,29 @@
                                         <option value="pg">pg</option>
                                         <option value="lkg">lkg</option>
                                         <option value="ukg">ukg</option> -->
-                                        <?php include('partials/select_classes.php') ?>
+                                        <?php
+                                            $id = $_SESSION['uid'];
+                                            $query = "SELECT * FROM teachers where id = '$id'";
+                                            $result = mysqli_query($conn,$query);
+                                            $row = mysqli_fetch_assoc($result);
+                                            if($row["class"]=="12s"){
+                                                echo '<option selected value="'.$row["class"].'">Class 12 Science</option>';
+                                            }
+                                            else if($row["class"]=="12c"){
+                                                echo '<option selected value="'.$row["class"].'">Class 12 Commerce</option>';
+                                            }
+                                           
+                                            else if($row["class"]=="11s"){
+                                                echo '<option selected value="'.$row["class"].'">Class 11 Scinece</option>';
+                                            }
+                                            else if($row["class"]=="11c"){
+                                                echo '<option selected value="'.$row["class"].'">Class 11 Commerce</option>';
+                                            }
+                                            
+                                            else{
+                                                echo '<option selected value="'.$row["class"].'">'.$row["class"].'</option>';
+                                            }
+                                         ?>
                                     </select>
                                     <div class="invalid-feedback">
                                         required!
@@ -142,10 +164,9 @@
                                     <select class="form-select" id="section" name="section" style="width:100%;"
                                         required>
                                         <option selected disabled value="">--select--</option>
-                                        <!-- <option value="A">A</option>
+                                        <option value="A">A</option>
                                         <option value="B">B</option>
-                                        <option value="C">C</option> -->
-                                        <?php include('partials/selelct_section.php') ?>
+                                        <option value="C">C</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         required!
@@ -262,7 +283,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                   <button type="button" onclick="backToStudentDetail()" class="btn btn-secondary">
+                  <button type="button" class="btn btn-secondary" onclick="backToStudentDetail()">
                         <div><i class='bx bxs-chevrons-left'></i><span>Back</span></div>
                     </button>
                     <button type="button" class="btn btn-primary" id="personal-info-btn">
@@ -404,7 +425,7 @@
 
 <!-- Sidebar -->
 <?php include('partials/_sidebar.php') ?>
-<input type="hidden" value="3" id="checkFileName">
+<input type="hidden" value="2" id="checkFileName">
 <!-- End of Sidebar -->
 
 <!-- Main Content -->
@@ -432,7 +453,7 @@
             <div class="orders">
 
                 <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item me-1" role="presentation">
                         <button class="nav-link active " id="addStudentTab" data-bs-toggle="tab" data-bs-target="#home" onclick="AddStudentBtnClick()" type="button" role="tab" aria-controls="home" aria-selected="true">Add Students</button>
                     </li>
@@ -443,9 +464,6 @@
                     <li class="nav-item me-1" role="presentation">
                         <button class="nav-link" id="feedback-students-tab" data-bs-toggle="tab" data-bs-target="#feedback" type="button" role="tab" aria-controls="feedback" aria-selected="false">Feedback</button>
                     </li>
-
-
-
                 </ul>
 
                 <!-- Tab panes -->
@@ -572,10 +590,9 @@
                                     <div class="col-auto">
                                         <select class="form-select" aria-label="Default select example"
                                             id="search-section">
-                                            <!-- <option selected>A</option>
+                                            <option selected>A</option>
                                             <option>B</option>
-                                            <option>C</option> -->
-                                            <?php include('partials/selelct_section.php') ?>
+                                            <option>C</option>
                                         </select>
                                     </div>
                                 </div>
@@ -583,7 +600,7 @@
                             <br>
 
                             <div class="container">
-                                 <a class="find" onclick="findAndshowStudents()">
+                                <a class="find" onclick="findAndshowStudents()">
                                 <i class='bx bx-search-alt'></i>
                                     <span>Find</span>
                                 </a>
@@ -680,13 +697,12 @@
 
                         </div>
                     </div>
-                    <br>
+
                     <div class="tab-pane" id="feedback" role="tabpanel" aria-labelledby="feedback-tab" tabindex="0">
 
                         <?php include('partials/student-shared/feedback-tab.php')  ?>
 
                     </div>
-
 
                 </div>
 

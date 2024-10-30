@@ -48,7 +48,7 @@
             <div class="left">
                 <h1>Dashboard</h1>
                 <ul class="breadcrumb">
-                    <li><a>
+                    <li><a href="#">
                             Analytics
                         </a></li>
 
@@ -62,7 +62,7 @@
 
         <!-- Insights -->
         <ul class="insights">
-            <li onclick="showTeacherList()">
+            <li>
                 <!-- <i class='bx bx-calendar-check'></i> -->
                 <i class='bx bxs-user'></i>
                 <span class="info">
@@ -81,7 +81,7 @@
                 <i class='bx bx-book'></i>
                 <span class="info">
                     <h3 class="text-center"  id="classCount">_ _ _</h3>
-                    <p>Home work and Notes</p>
+                    <p>Notes</p>
                 </span>
             </li>
             <li onclick="showNoticeList()">
@@ -114,7 +114,30 @@
                         </tr>
                     </thead>
                     <tbody id="noticeTableBody">
-                   
+                    <tr>
+                            <td class="user">
+                                <img src="../images/green.png">
+                                <p>how do they do it</p>
+                            </td>
+                            <td>14-08-2023</td>
+                            <td><span>Arvind verma</span></td>
+                        </tr>
+                        <tr>
+                            <td class="user">
+                                <img src="../images/red.png">
+                                <p>Yogesh yadav</p>
+                            </td>
+                            <td>14-08-2023</td>
+                            <td><span class="status complain">Complain</span></td>
+                        </tr>
+                        <tr>
+                            <td class="user">
+                                <img src="../images/yellow.png">
+                                <p>Shubham kumar</p>
+                            </td>
+                            <td>14-08-2023</td>
+                            <td><span class="status notice">Event</span></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -131,13 +154,12 @@
                     
                 </ul>
             </div>
-           
 
             <!-- End of Reminders-->
 
             
         </div>
- <br>
+<br>
     </main>
 </div>
 

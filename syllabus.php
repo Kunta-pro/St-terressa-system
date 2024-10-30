@@ -131,7 +131,7 @@
 <!-- end of upload syllabus label  when only file is needed-->
 <!-- Sidebar -->
 <?php include('partials/_sidebar.php') ?>
-<input type="hidden" value="8" id="checkFileName">
+<input type="hidden" value="6" id="checkFileName">
 <!-- End of Sidebar -->
 
 
@@ -179,21 +179,21 @@
                                     <div class="col-auto">
                                         <select class="form-select" aria-label="Default select example" name=""
                                             id="selected-class">
-                                            <!--<option selected>12</option>-->
-                                            <!--<option>11</option>-->
-                                            <!--<option>10</option>-->
-                                            <!--<option>9</option>-->
-                                            <!--<option>8</option>-->
-                                            <!--<option>7</option>-->
-                                            <!--<option>6</option>-->
-                                            <!--<option>5</option>-->
-                                            <!--<option>4</option>-->
-                                            <!--<option>3</option>-->
-                                            <!--<option>2</option>-->
-                                            <!--<option>1</option>-->
-                                            <!--<option>pg</option>-->
-                                            <!--<option>lkg</option>-->
-                                            <!--<option>ukg</option>-->
+                                           <!--  <option selected>12</option>
+                                            <option>11</option>
+                                            <option>10</option>
+                                            <option>9</option>
+                                            <option>8</option>
+                                            <option>7</option>
+                                            <option>6</option>
+                                            <option>5</option>
+                                            <option>4</option>
+                                            <option>3</option>
+                                            <option>2</option>
+                                            <option>1</option>
+                                            <option>pg</option>
+                                            <option>lkg</option>
+                                            <option>ukg</option> -->
                                             <?php include('partials/select_classes.php') ?>
                                         </select>
                                     </div>

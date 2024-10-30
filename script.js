@@ -17,7 +17,6 @@ sideLinks.forEach(item => {
 });
 
 
-
 let menuBarBtns = document.querySelectorAll('.SidebarOpener');
 const sideBar = document.querySelector('.sidebar');
 
@@ -27,7 +26,7 @@ let smallON = false;
 menuBarBtns.forEach(function (menuBar) {
     menuBar.addEventListener('click', function () {
 
-        
+        console.log('something happen');
         if (w <= 600) {
             if (sideBar.classList.contains("close")) {
                 sideBar.classList.remove("close");
@@ -142,7 +141,7 @@ toggler.addEventListener('change', function () {
     })
         .then(response => response.text())
         .then(data => {
-           
+
         })
         .catch(error => {
             console.error('Error:', error);
@@ -189,7 +188,6 @@ window.addEventListener('DOMContentLoaded', function () {
 }, true);
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
   
     fetch('../assets/loadProfilePic.php', {
@@ -197,9 +195,9 @@ document.addEventListener("DOMContentLoaded", function () {
     })
         .then(response => response.json())
         .then(data => {
-
+        
             if (data['status'] === "success") {
-              
+             
                 document.getElementById("navbar_profile_pic").innerHTML = data['data'];
             } else {
                 
@@ -226,7 +224,7 @@ document.getElementById("topMostSearchBarBtn").addEventListener('click', ()=>{
 function searchFunction(){
     var searchValue = ((document.getElementById("topMostSearchBar").value + "").toLowerCase()).trim();
     
-   
+
 
 
     var currentUrl = window.location.href;
@@ -239,8 +237,10 @@ function searchFunction(){
     })
         .then(response => response.text())
         .then(data => {
-             data = data.trim();
+            data = data.trim();
             data = data.replace("\n", "");
+            
+         
 
             if(data === "NOTFOUND"){
                 document.getElementById("topMostSearchBar").classList.add("redColorText");
@@ -256,21 +256,3 @@ function searchFunction(){
 document.getElementById("unknowingForm").addEventListener('submit', function(event){
     event.preventDefault();
 });
-
-function getClasses(){
-    fetch('../assets/getClassesFromDB.php', {
-        method: 'POST',
-    })
-    .then(response => response.json())
-    .then(data => {
-       
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
-
-// enable tooltips
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

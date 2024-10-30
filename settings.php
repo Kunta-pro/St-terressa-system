@@ -1,6 +1,9 @@
 
+
+
 <?php include("../assets/noSessionRedirect.php"); ?>
 <?php include("./verifyRoleRedirect.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,8 +47,8 @@
                 <strong>Do you want to edit your profile.</strong>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="button" class="btn btn-danger" id="EditProfileBtn">Yes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="EditProfileBtn">Edit</button>
             </div>
         </div>
     </div>
@@ -232,7 +235,7 @@
 
     <!-- Sidebar -->
     <?php include('partials/_sidebar.php') ?>
-    <input type="hidden" value="12" id="checkFileName">
+    <input type="hidden" value="10" id="checkFileName">
     <!-- End of Sidebar -->
 
     <!-- Main Content -->
@@ -281,7 +284,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item submit-attendence" id="remove_pic" onclick="removeProfilePic()">Remove Profile Picture</a></li>
                                         <li><a class="dropdown-item reset-attendence" id="_change_password" >Change Password</a></li>
-                                        <li><a class="dropdown-item reset-attendence" id="_change_profile" >Edit Profile</a></li>
+                                        <li style="display:none;"><a class="dropdown-item reset-attendence" id="_change_profile" >Edit Profile</a></li>
                                     </ul>
                                 </div>
                                     </div>
@@ -303,7 +306,7 @@
                                                 <div class="text-center mt-3 mb-3">
 
                                                     <div id="profileImageBox">
-                                                    <img alt="Profile Pic" src="../images/user.png" class="rounded-circle img-responsive mt-2" width="128" height="128" id="profile-image-user">
+                                                    <img alt="Andrew Jones" src="../images/user.png" class="rounded-circle img-responsive mt-2" width="128" height="128" id="profile-image-user">
                                                     </div>
                                                     <div class="mt-1 btn-container">
                                                         <div class="btn btn-primary upload-btn" style="cursor: default;">
@@ -329,9 +332,11 @@
                                                             class='bx bxs-key'></i>&nbsp;<div>Change Password</div>
                                                         </button>
 
+                                                <div  style="display:none;">
                                                  <button class="btn btn-primary mb-3" 
                                                  id="showEditDialogBtn"> <i
                                                             class='bx bx-edit-alt'></i>&nbsp;Edit Profile</button>
+                                                            </div>
                                             </div>
                                         </div>
 
@@ -346,8 +351,7 @@
                                                         <div class="row">
                                                             <div class="col-md-10">
                                                                 
-                                                                
-                                                                   <div class="user-info ">
+                                                                 <div class="user-info ">
                                                                     <h4 class="_flex-container"> <i class='bx bxs-cuboid'></i>&nbsp;&nbsp;UID </h4>
                                                                     <h3>-</h3>
                                                                     <p id="teacher_id">_ _ _ _</p>
@@ -369,6 +373,17 @@
                                                                     <h3>-</h3>
                                                                     <p id="userEmail">_ _ _ _</p>
                                                                 </div>
+                                                                <div class="user-info">
+                                                                    <h4  class="_flex-container"><i class="bi bi-c-circle-fill"></i>&nbsp;&nbsp;Class </h4>
+                                                                    <h3>-</h3>
+                                                                    <p id="userClass">_ _ _ _</p>
+                                                                </div>
+                                                                
+                                                                <div class="user-info">
+                                                                    <h4  class="_flex-container"><i class="bi bi-book"></i>&nbsp;&nbsp;Section </h4>
+                                                                    <h3>-</h3>
+                                                                    <p id="userSection">_ _ _ _</p>
+                                                                </div>
 
                                                                 <div class="user-info">
                                                                     <h4  class="_flex-container"><i class='bx bx-phone-call' ></i>&nbsp;&nbsp;Phone</h4>
@@ -381,7 +396,6 @@
                                                                     <h3>-</h3>
                                                                     <p id="userGender">_ _ _ _</p>
                                                                 </div>
-
 
                                                                 <div class="user-info">
                                                                     <h4  class="_flex-container"><i class='bx bxs-home-alt-2' ></i>&nbsp;&nbsp;Address</h4>

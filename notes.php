@@ -141,7 +141,7 @@
             <div class="modal-header">
             </div>
             <div class="modal-body">
-                <strong>Do you really want to delete this Note?</strong>
+                <strong>Do you really want to delete this Notes?</strong>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -297,7 +297,7 @@
 <!-- end of edit uploaded notes-->
 <!-- Sidebar -->
 <?php include('partials/_sidebar.php') ?>
-<input type="hidden" value="9" id="checkFileName">
+<input type="hidden" value="7" id="checkFileName">
 <!-- End of Sidebar -->
 
 
